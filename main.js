@@ -12,7 +12,7 @@
 
 let randomNum = 0
 let history = []
-let countNum = 5
+let countNum = 3
 let playButton = document.getElementById("playButton")
 let inputNumber = document.getElementById("inputNumber")
 let resultArea = document.getElementById("resultArea")
@@ -27,7 +27,7 @@ pickRandomNum();
 
 function pickRandomNum()
 {
-    randomNum = Math.floor(Math.random() * 100) + 1
+    randomNum = Math.floor(Math.random() * 10) + 1
     console.log("정답: ", randomNum)
 }
 
@@ -35,9 +35,9 @@ function play()
 {
     let userValue = inputNumber.value
 
-    if((userValue < 1) || (userValue > 100))
+    if((userValue < 1) || (userValue > 10))
     {
-        resultArea.textContent = "1 ~ 100까지의 숫자를 입력해주세요!"
+        resultArea.textContent = "1 ~ 10까지의 숫자를 입력해주세요!"
     }else if(history.includes(userValue))
     {
         resultArea.textContent = "같은 숫자를 입력하였습니다."
@@ -63,9 +63,9 @@ function play()
 function reset()
 {
     inputNumber.value = ""
-    resultArea.textContent = "결과가 나온다"
+    resultArea.textContent = "몇잔일까?"
     pickRandomNum()
-    countNum = 5
+    countNum = 3
     countDownArea.textContent = `남은기회: ${countNum}번`
     playButton.disabled = false
     history = []
